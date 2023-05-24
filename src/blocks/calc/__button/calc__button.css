@@ -1,0 +1,20 @@
+.calc__button {
+  text-decoration: none;
+  display: inline-block;
+  line-height: 45px;
+  border-radius: 25px;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  background: white;
+  transition: .3s;
+}
+
+.calc__button:hover {
+  background: #2EE59D;
+  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+  color: white;
+  transform: translateY(-3px);
+}

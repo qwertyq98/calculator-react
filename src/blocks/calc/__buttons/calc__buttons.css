@@ -1,0 +1,7 @@
+.calc__buttons {
+  margin: 5px 0 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 75px);
+  grid-auto-rows: 50px;
+  gap: 5px;
+}

@@ -1,0 +1,18 @@
+.calc__input {
+  width: 100%;
+  margin: 5px auto 0;
+  box-sizing: border-box;
+  outline: none;
+  caret-color: transparent;
+  text-align: right;
+  padding: 7px;
+  display: block;
+  border: 0;
+  max-height: 70px;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 21px;
+  color: white;
+  background-color: black;
+}

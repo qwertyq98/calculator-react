@@ -1,0 +1,13 @@
+.content {
+  background-color: black;
+  color: #e9e5e5;
+  margin: 0 auto;
+  max-width: 500px;
+  max-height: 800px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Inter,Arial,sans-serif;
+}

@@ -1,1 +1,2 @@
-# calculator-react
+# Калькулятор  (pet-проект)
+
