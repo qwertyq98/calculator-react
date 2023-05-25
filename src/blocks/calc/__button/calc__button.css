@@ -10,6 +10,7 @@
   font-weight: 600;
   background: white;
   transition: .3s;
+  color: black;
 }
 
 .calc__button:hover {

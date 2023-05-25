@@ -1,57 +1,103 @@
 import React from 'react'; 
 
 function Calculator() {
-  const buttons = ['AC', '()', '%', '/', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '0', '.', '='];
+  const buttons = ['⌦','AC', '()', '/', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '0', '.', '='];
   const [expression, setExpression] = React.useState('0');
   const [result, setResult] = React.useState('0');
-  const pattern = /^[0-9+-/\*\.()%]*$/;
-  const pattern2 = /^-$/;
+  const pattern = /^[0-9+-/\*\.()⌦]*$/;
+  const errorPattern = /[+-/\*\.⌦]{2}/;
+
+  function onKeyDown(e) {
+    if (e.key === "Enter") {
+      addSymbol('=');
+    }
+    if (e.key === "Backspace") {
+      addSymbol('⌦');
+    }
+    if (e.key === "Delete") {
+      addSymbol('AC');
+    }
+  }
+
+  function keyboardEvent(e) {
+    addSymbol(e.nativeEvent.data);
+  }
 
   function onClickButton(e) {
-    let newExpression;
+    addSymbol(e.target.textContent);
+  }
+
+  function addSymbol(newSymbol) {
+    let newExpession = expression;
+    const numberOfUnclosedBrackets = (newExpession.match(/\(/g) || []).length - (newExpession.match(/\)/g) || []).length;
     const lastSymbol = expression[expression.length-1];
 
-    switch (e.target.textContent) {
+    switch (newSymbol) {
       case '=':
-        newExpression = eval(expression);
+        if (numberOfUnclosedBrackets > 0) {
+          for (let i=0; i < numberOfUnclosedBrackets; i++) {
+            newExpession += ')';
+          }
+          setResult(newExpession);
+        }
+        newExpession = eval(newExpession).toString();
         break;
       case 'AC':
-        newExpression = '0';
-        setResult(newExpression);
+        newExpession = '0';
+        break;
+      case '⌦': 
+        newExpession = newExpession.slice(0, -1);
+        if (newExpession.length === 0) {
+          newExpession = '0';
+        }
         break;
       case '()':
-        if(isNaN(+lastSymbol)) {
-          newExpression = expression + '(';
-        } else {
-          newExpression = expression + ')';
+        if (isNaN(+lastSymbol) || lastSymbol === '0') {
+          newExpession += '(';
+          break;
         }
-        setResult(newExpression);
+      case ')':
+        if (numberOfUnclosedBrackets > 0) {
+          newExpession += ')';
+        }
         break;
       case 'x':
-        newExpression = expression + '*';
-        setResult(newExpression);
+        newExpession += '*';
         break;
       default:
-        newExpression = expression + e.target.textContent;
-        setResult(newExpression);
+        newExpession += newSymbol;
     }
 
-    if (newExpression.length === 2 && newExpression[1] !== ',') {
-      newExpression = newExpression.replace(/^0/,'');
+    if (newExpession.length === 2 && newExpession[1] !== '.') {
+      newExpession = newExpession.replace(/^0/,'');
     }
-  
-    setExpression(newExpression);
+    
+    if (!errorPattern.test(newExpession) && pattern.test(newExpession)) {
+      setExpression(newExpession);
+      if (newSymbol !== '=') {
+        setResult(newExpession);
+      }
+    }
   }
 
   return (
     <section className='calc'>
       <span className='calc__math-expression'>{result}</span>
-      <input className='calc__input' type='text' name='expression' value={expression} maxLength="50" autoFocus></input>
+      <input 
+        className='calc__input' 
+        type='text' 
+        name='expression' 
+        value={expression} 
+        maxLength="50" 
+        onChange={keyboardEvent}
+        autoFocus
+        onKeyDown={onKeyDown}
+      />
       <div className="calc__buttons">
       {buttons.map((button) => (
         <button key={buttons.indexOf(button)} onClick={onClickButton} className={
-          button === 'AC' || button === '()' || button === '%'? 'calc__button calc__button_white':
-          button === '%' || button === 'x' || button === '-' || button === '+' || button === '=' || button === '/'? 'calc__button calc__button_orange': 
+          button === 'AC' || button === '()' || button === '⌦'? 'calc__button calc__button_white': 
+          'x-+=/'.includes(button) ? 'calc__button calc__button_orange': 
           button === '0'? 'calc__button calc__button_black calc__button_black_0': 'calc__button calc__button_black'
         }>{button}</button>
       ))}
