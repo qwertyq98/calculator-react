@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/calculator-react/static/css/main.cf8c608a.css",
-    "main.js": "/calculator-react/static/js/main.90f0e93f.js",
+    "main.css": "/calculator-react/static/css/main.9bd5c705.css",
+    "main.js": "/calculator-react/static/js/main.b90c6b17.js",
     "static/media/Inter-Medium.woff": "/calculator-react/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
     "static/media/Inter-Black.woff": "/calculator-react/static/media/Inter-Black.c6938660eec019fefd68.woff",
     "static/media/Inter-Regular.woff": "/calculator-react/static/media/Inter-Regular.8c206db99195777c6769.woff",
@@ -9,11 +9,11 @@
     "static/media/Inter-Black.woff2": "/calculator-react/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
     "static/media/Inter-Regular.woff2": "/calculator-react/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
     "index.html": "/calculator-react/index.html",
-    "main.cf8c608a.css.map": "/calculator-react/static/css/main.cf8c608a.css.map",
-    "main.90f0e93f.js.map": "/calculator-react/static/js/main.90f0e93f.js.map"
+    "main.9bd5c705.css.map": "/calculator-react/static/css/main.9bd5c705.css.map",
+    "main.b90c6b17.js.map": "/calculator-react/static/js/main.b90c6b17.js.map"
   },
   "entrypoints": [
-    "static/css/main.cf8c608a.css",
-    "static/js/main.90f0e93f.js"
+    "static/css/main.9bd5c705.css",
+    "static/js/main.b90c6b17.js"
   ]
 }
