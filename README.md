@@ -4,7 +4,7 @@
 
 ## Screenshot
 
-![Desktop screenshot](https://github.com/qwertyq98/calculator-react/screenshot/screenshot.jpg)
+![Desktop screenshot](https://github.com/qwertyq98/calculator-react/blob/main/screenshot/screenshot.jpg)
 
 Поддерживаемые функции: 
 
