@@ -6,7 +6,7 @@
 
 ![Desktop screenshot](https://github.com/qwertyq98/calculator-react/blob/main/screenshot/screenshot.jpg)
 
-Поддерживаемые функции: 
+## Поддерживаемые функции: 
 
 -  сложение (+)
 -  вычитание (-)
